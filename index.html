@@ -1,0 +1,418 @@
+<!doctype html>
+
+<html>
+	
+<head>
+	
+<!--The following displays language used in browser to interpret page -->
+<meta charset="UTF-8">
+
+<!--The following line of code displays the page title on a browser tab -->
+<title>A Bug's World | Home</title>
+
+<!--link tags are for linking to external files, in this case your CSS stylesheet-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	
+<!--link tags are for linking to external files, in this case a special CSS stylesheet-->
+<link href="normalize.css" rel="stylesheet" type="text/css">
+
+<!--the following tag tells the browser to adjust the site according to screen size-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--The following code links to the jquery library -->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+<!--The following code links to the javascript file that runs the slideshow -->	
+<script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+
+<!--The following code links to image generator js code-->
+<script type="text/javascript" src="js/bugfacts.js"></script>
+    
+<!--The following code links to the javascript file that runs the parallax image -->    
+<script src="js/parallax.min.js"></script>
+	
+<!--The following code links to Google Fonts-->
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	
+<!--The following javscript runs the jquery slideshow -->
+<script type="text/javascript">
+$('#slider').cycle({});
+</script>
+
+<!--The following javascript runs the nav bar which disappears on scroll-->
+<script type="text/javascript">
+// Hide Header on on scroll down
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+</script>
+    
+    
+<!--Favicon - images are in a folder called 'fav'-->
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!--End Favicon-->
+    
+<!--back to top button-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}    
+</script>   
+</head>
+
+<body>
+<script type='text/javascript' src='js/bug.js'></script>
+		<script type='text/javascript'>
+			// default fruit fly bug:
+			new BugController();
+
+			// default spiders:
+			new SpiderController();
+		</script>
+
+<!--beginning of navigation section-->
+<header>
+<div class="nav-container">
+<div class="brand"><img src="img/logo.png" width="190" height="75" alt=""/></div>
+<nav>
+<div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+  <ul class="nav-list">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+	   <li>
+          <a href="#gal">Discovery Day</a>
+		  </li>
+	  	<li>
+          <a href="#tl">Favorite Bug</a>
+        </li>
+        <li>
+          <a href="#vid">Natalie's Bees</a>
+			</li>
+        <li>
+          <a href="#num">Strongest Bugs</a>
+			</li>
+      </ul>
+</nav>
+</div>
+<!--closing navigation tag-->
+</header>
+<!--end of navigation section-->
+    
+<!--main image-->
+<div class="mainimg">
+</div>
+<!--animated welcome-->
+<div class="wrapper">
+<!--animated welcome code here-->	
+</div>
+    
+<!--beginning of main content area-->
+<div class="row whiteBG">
+<h2 id="home">A Bug's World</h2>
+<article>
+    <p>We're surrounded by bugs everywhere we go. There are over <a id="inline" href="https://wildlife.ca.gov/HWC/Insects#:~:text=It%20is%20estimated%20that%20over,animals%2C%20seed%20and%20nutrient%20dispersal.">30,000</a> species of bugs in California alone. Insects play an important role in our ecosystems from pollination to food sources for other species.<br><br>Continue on to explore the world of bug's around us!</p>
+<p class="tab"><a href="#gal">Discover</a></p>
+</article>
+</div>
+    
+<!--beginning of parallax image-->
+<div class="parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" iosFix="true" data-image-src="img/parallax2.gif">
+</div>
+<!--end of parallax image-->
+
+<!--beginning of slideshow section-->
+<div class="row blueBG"><!--beginning of row-->
+<h2 id="gal">Discovery Day</h2>
+<article><!--beginning of article-->
+<p class="tab">Discover the bugs in the Cal Poly orchards with David Headrick's Insect Pest Management class.</p>
+<!--beginning of slideshow-->
+<div id="slider"
+data-cycle-caption="#alt-caption"
+data-cycle-caption-template="{{alt}}"
+data-cycle-fx="scrollHorz"
+data-cycle-pause-on-hover="true"
+data-cycle-speed="200">
+<div class="cycle-prev"></div>
+<div class="cycle-next"></div>
+<img src="img/1.jpg" width="100%" height="100%" alt="1. From discovering new species to simply discovering what’s in the area, discovery is a key part of entomology. On Thursday, April 18, students of David Headrick’s Insect Pest Management class (PLSC 431) at Cal Poly went out to the orchards by the Crops Unit (Bldg. 17) to discover whatever insects they could. 
+
+“It's nice because you can actually see what's going on,” Samuel Just, a plant science senior and student in the class, said. “It’s very gratifying. You know, you get out there, you can just walk around and see what's happening in the field.”
+
+In the coming weeks, the class will start to monitor and track certain pests to create a report about how these insects could affect the crops. 
+
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/2.jpg" width="100%" height="100%" alt="2. The students had about an hour and a half to check several rows of four different crops, documenting what bugs they found while taking note of exact location, wind conditions and temperature. While many of the students decided to go up and down each row, looking at as many trees as they could, Just had a different strategy. 
+
+Just examined the rows in a W pattern and tried to stop at random trees, going deep into the leaves to find the pests he was looking for.
+
+“You really got to get in the canopy,” Just said. “So if your allergies are bad, it's not a good spot to be.”
+
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/3.jpg" width="100%" height="100%" alt="3. With tools like an aspirator that lets them suck small bugs into a collection chamber to help them, plant science seniors Abraham Ahumada (pictured), Mike Elias and Quinn Akemon were one of the first groups to get through all four crops. 
+
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/4.jpg" width="100%" height="100%" alt="4. While people needed their small magnifying glass called a hand lens to see most of the insects they were looking for during their lab, some of the bugs, like the leaf-footed bug, could be seen with the naked eye. 
+
+“I think leaf footed bugs are pretty cool,” Akemon said. 
+
+Leaf-footed bugs are a type of plant-eating true bug that can sometimes be serious agricultural pests. 
+
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/5.jpg" width="100%" height="100%" alt="5. For Akemon, consistency and documentation are some of the most important things she has learned in the class so far. 
+
+During the lab, students had to document the bugs they found by uploading a photo and some notes into an app on their phone.  
+
+“Our entire camera roll just ends up being bugs,” Akemon said.
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/6.jpg" width="100%" height="100%" alt="6. For students concentrating on plant protection like Ahumada, Elias and Just, Insect Pest Management is a required course. For others, the class counts for an elective. 
+
+Akemon, who is concentrating in environmental horticulture, decided to take this class in part because she likes having Headrick as a professor.
+
+“I love Dr. Headrick,” Akemon said. “He’s really funny and very experienced.”
+
+Headrick’s passion for his work is apparent in all that he does, from the excitement in his voice as he teaches to his openness to answer questions.
+
+“I gotta say, I love the teaching part of it and interacting with the kids,” Headrick said. 
+
+During the lab on Thursday, Headrick helped his students identify some San Jose Scale on an apple tree. 
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/7.jpg" width="100%" height="100%" alt="7. San Jose Scales were found on an apple tree in their white cap stage. In this stage, the young scales, known as crawlers, became immobile and secrete hard, white, waxy coverings, according to Christelle Guédot, an entomology professor at University of Wisconsin-Madison.
+
+San Jose Scales feed on the sap of fruit trees and can eventually kill the plant, if left uncontrolled. 
+
+San Jose Scale infestations can be controlled with natural predators and insecticides. 
+Photo Credit: Ashley Bolter, April 18, 2024, Cal Poly San Luis Obispo orchards"/>
+<img src="img/8.jpg" width="100%" height="100%" alt="8. Headrick is not just making discoveries of pest infestations with his students in his labs. He has also recently discovered a new aphid species on campus. 
+
+Headrick said he stumbled upon this discovery by accident as he was looking for diversity in bug species on a Coast Live Oak (Quercus agrifolia) tree near the H2 parking lot with one of his classes. 
+
+“We wanted to show them certain kinds of ecological concepts like comparing this natural setting to an ag setting,” Headrick said. 
+
+According to Headrick, in natural settings there is generally more diversity but a lower concentration of any particular species while in agricultural settings, there is less diversity and a higher concentration of particular species. 
+Photo Credit: Ashley Bolter, April 16, 2024, Cal Poly San Luis Obispo near H2 parking lot"/>
+<img src="img/9.jpg" width="100%" height="100%" alt="9. One of the things Headrick studies is galls, which are “basically little genetic engineers that change the plant tissue into a structure that they feed inside of,” he said. 
+
+As he was looking at the tree, he noticed some of the leaves were folded over, which he said is a very primitive kind of gall structure. 
+
+“So I opened it up, and when I opened it up the first time I saw aphids in there,” Headrick said. “I was like, ‘Aphids? That's not typical. That's not something you'd expect to see here on an oak tree.’ But sure enough, they were there.”
+Photo Credit: Ashley Bolter, April 16, 2024, Cal Poly San Luis Obispo near H2 parking lot"/>
+<img src="img/10.jpg" width="100%" height="100%" alt="10. In addition to the aphids, Headrick suspects there are also a new predator insect that feeds on these new aphids, though he hasn’t identified the predator flies that he has observed yet. 
+
+“We may have several new species here that nobody had ever known about, and it's all right here on this little tree,” Headrick said. 
+
+Headrick said that while the process of discovering and collecting a new species might not seem that exciting to most people, for him, it’s one of his favorite parts of his job. 
+
+“The thing about the world of entomology is that there's so much to be discovered,” Headrick said. “If you can discover something like that, that never has been seen before, like that's a thrill.” 
+Photo Credit: Ashley Bolter, April 16, 2024, Cal Poly San Luis Obispo near H2 parking lot"/>
+</div>
+<!--end of slideshow-->
+<!--beginning of slideshow caption-->
+<div id="alt-caption" class="center">
+</div><!--end of slideshow caption-->
+<p class="tab"><a href="#tl">Listen</a></p>
+</article><!--end of article-->
+</div><!--end of row-->
+<!--end of slideshow section-->
+	
+<!--beginning of audio section-->
+<div class="row whiteBG">
+<h2 id="tl">What's your favorite bug?</h2>
+<article>
+  <p class="tab">Cal Poly students were asked what their favorite bug is<br>Click on images to hear their responses.<br>(Double-click to pause audio)</p>
+  <div class="table">
+	<div id="trip">
+<audio id="audio_1">
+    <source src="audio/1.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_2">
+    <source src="audio/2.mp3" type="audio/mpeg" />
+</audio>        
+<audio id="audio_3">
+	<source src="audio/3.mp3" type="audio/mpeg" />
+</audio>
+        
+<img src="img/rollover/1.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/1.jpg'" onMouseOut="this.src='img/rollover/1.gif'" onClick="document.getElementById('audio_1').play(); return false;" onDblClick="document.getElementById('audio_1').pause(); return false;">
+ /&gt; 
+            
+<img src="img/rollover/2.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/2.jpg'" onMouseOut="this.src='img/rollover/2.gif'" onClick="document.getElementById('audio_2').play(); return false;" onDblClick="document.getElementById('audio_2').pause(); return false;">
+ /&gt;
+            
+<img src="img/rollover/3.gif" class="rollover" alt="description" onMouseOver="this.src='img/rollover/3.jpg'" onMouseOut="this.src='img/rollover/3.gif'" onClick="document.getElementById('audio_3').play(); return false;" onDblClick="document.getElementById('audio_3').pause(); return false;">
+/&gt;
+	</div>
+</div>
+<p class="tab"><a href="#vid">Watch</a></p>		
+</article>
+</div>
+<!--end of audio section-->
+    
+<!--beginning of parallax image-->
+<div class="parallax" data-parallax="scroll" data-bleed="10" data-speed="0.2" iosFix="true" data-image-src="img/parallax.jpg">
+</div>
+<!--end of parallax image-->
+
+<!--beginning of video section-->
+<div class="row orangeBG">
+<h2 id="vid">Natalie's Bees</h2>
+<article>
+<p class="tab">Natalie Tokhmakhian, an electrical engineering graduate student at Cal Poly, San Luis Obispo, describes her first time catching a swarm of bees.She dabbled a little bit in beekeeping with her dad back home, but didn't really get into it until she started taking Beekeeping (PLSC 175). She is enjoying the class so much, she even started her own beeswax chapstick business and will donate the money she makes back into the beekeeping class.</p>	
+<video src="img/nataliesbees.mp4" width="100%" height="100%" poster="img/poster.jpg" controls>
+Your browser does not support the video tag.
+</video>
+<p class="tab"><a href="#num">Learn</a></p>
+</article>
+</div>
+<!--end of video section-->
+
+<!--beginning of infographic section-->
+<div class="row whiteBG">
+<h2 id="num">How much can the strongest bugs carry?</h2>
+<article>
+    <p class="tab">The current <a id="inline" href="https://www.guinnessworldrecords.com/world-records/115841-heaviest-weight-ever-lifted" target="_blank">Guinness World Record</a> for heaviest weight ever lifted by a human being is held by Canadian Gregg Ernst, who lifted 5,340 lbs (about 17 times his weight) in 1993. But how much can the strongest bugs lift?</p>
+<!--infographic embed code here-->
+   <div style="position: relative; width: 100%; height: 0; padding-top: 250.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGGiVoGo64&#x2F;rnQjchg0gCSQ4aaGGnDSvA&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+    Sources: <a id="inline" href="https://www.science.org/content/article/scienceshot-worlds-strongest-insect#:~:text=The%20insect%20world%20is%20famous,%2Dloaded%2018%2Dwheeler%20trucks." target="_blank">Science.org</a>, <a id="inline" href="https://www.oneearth.org/species-of-the-week-rhinoceros-beetles/" target="_blank"> Oneearth.org</a>, <a id="inline" href="https://www.treehugger.com/crazy-facts-leaf-cutter-ants-4864484" target="_blank">Treehugger.com</a>
+    <p class="tab"><a href="#more">Local bugs</a></p>
+    </article>
+</div>
+<!--end of infographic section-->
+<!--another javascript element-->
+<div class="row blueBG">
+<h2 id="more">Bugs in San Luis Obispo</h2>
+<p>Click the button below to see some of the bugs you might find around San Luis Obispo county. Click the images to learn more about each bug.</p>
+<article>
+    <div>
+    <div id="image-container">
+        <!--images here-->
+    </div>
+    <div id="button-container">
+        <button id="jsstyle" onclick="display_random_image();">Show me the bugs!</button> 
+    </div>
+    </div>
+    </article>
+</div>
+<!--end javascript element-->
+<!--beginning of footer-->
+
+<footer>A Bug's World | San Luis Obispo, CA | <a href="mailto: abolter@calpoly.edu Subject=Inquiry" target="_top">Send Email</a> | Copyright 2024 | Site by Ashley Bolter 
+</footer>
+<!--end of footer-->
+	
+</body>
+	
+<!--the following script controls the responsive navigation-->
+<script>
+	(function($) { // Begin jQuery
+  $(function() { // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $('nav ul li a:not(:only-child)').click(function(e) {
+      $(this).siblings('.nav-dropdown').toggle();
+      // Close one dropdown when selecting another
+      $('.nav-dropdown').not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $('html').click(function() {
+      $('.nav-dropdown').hide();
+    });
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    // Hamburger to X toggle
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active');
+    });
+  }); // end DOM ready
+})(jQuery); // end jQuery
+	</script>
+	<script>
+	var headertext = [];
+var headers = document.querySelectorAll("#miyazaki th"),
+tablerows = document.querySelectorAll("#miyazaki th"),
+tablebody = document.querySelector("#miyazaki tbody");
+for(var i = 0; i < headers.length; i++) {
+	var current = headers[i];
+	headertext.push( current.textContent.replace( /\r?\n|\r/,"") );
+}
+for (var i = 0, row; row = tablebody.rows[i]; i++) {
+	for (var j = 0, col; col = row.cells[j]; j++) {
+		col.setAttribute("data-th", headertext[j]);
+	}
+}
+</script>
+	
+	<!----Prevents audio tracks from playing simultaneously---->
+<script>
+document.addEventListener('play', function(e){
+    var audios = document.getElementsByTagName('audio');
+    for(var i = 0, len = audios.length; i < len;i++){
+        if(audios[i] != e.target){
+            audios[i].pause();
+        }
+    }
+}, true);
+    </script>
+
+</html>
